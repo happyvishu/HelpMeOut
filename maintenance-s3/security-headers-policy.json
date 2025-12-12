@@ -1,0 +1,44 @@
+{
+    "ResponseHeadersPolicyConfig": {
+        "Name": "SaamaMaintenanceSecurityHeaders",
+        "Comment": "Security headers for Saama maintenance page",
+        "SecurityHeadersConfig": {
+            "StrictTransportSecurity": {
+                "Override": true,
+                "IncludeSubdomains": true,
+                "Preload": true,
+                "AccessControlMaxAgeSec": 31536000
+            },
+            "ContentTypeOptions": {
+                "Override": true
+            },
+            "FrameOptions": {
+                "Override": true,
+                "FrameOption": "DENY"
+            },
+            "XSSProtection": {
+                "Override": true,
+                "Protection": true,
+                "ModeBlock": true
+            },
+            "ReferrerPolicy": {
+                "Override": true,
+                "ReferrerPolicy": "no-referrer"
+            },
+            "ContentSecurityPolicy": {
+                "Override": true,
+                "ContentSecurityPolicy": "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'none';"
+            }
+        },
+        "CustomHeadersConfig": {
+            "Quantity": 1,
+            "Items": [
+                {
+                    "Header": "Permissions-Policy",
+                    "Value": "geolocation=(), microphone=(), camera=()",
+                    "Override": true
+                }
+            ]
+        }
+    }
+}
